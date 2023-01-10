@@ -1,4 +1,4 @@
-export const config = {
+exports.config = {
     //
     // ====================
     // Runner Configuration
@@ -24,6 +24,7 @@ export const config = {
     //
     specs: [
         // ToDo: define location for spec files here
+        './test/**/*.js'
     ],
     // Patterns to exclude.
     exclude: [
@@ -217,6 +218,11 @@ export const config = {
      */
     // beforeTest: function (test, context) {
     // },
+    before: async () => {
+        const chai = await import('chai');
+        global.expect = chai.expect;
+        global.assert = chai.assert;
+    }
     /**
      * Hook that gets executed _before_ a hook within the suite starts (e.g. runs before calling
      * beforeEach in Mocha)
