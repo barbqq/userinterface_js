@@ -1,10 +1,15 @@
-class HomePage {
-    get mainPageElement() { return $('//button[@class="start__button"]')}
+import Page from '../base_classes/page.js';
+import Button from '../elements/button.element.js';
+class HomePage extends Page{
+    gameLinkBtn = new Button("Game Link Button","//a[@class='start__link']")    
 
-    isPageOpened() {
-        this.mainPageElement.waitForDisplyed();
-        return this.mainPageElement.isDisplayed();
+    constructor(){
+        super('Home page','//button[@class="start__button"]')
+    }
+    
+    async clickGameLinkBtn(){        
+        await this.gameLinkBtn.click();        
     }
 }
 
-module.exports = new HomePage();
+export default new HomePage();

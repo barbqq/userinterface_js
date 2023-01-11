@@ -1,13 +1,17 @@
 export default class Page {
     
-    constructor(name,page_element) {
+    constructor(name,pageElementLocator) {
             this.name = name;
-            this.page_element = page_element;
+            this.pageElementLocator = pageElementLocator;
     }
 
-    isPageOpen() {
-        this.page_element.waitForDisplyed();
-        return this.page_element.isDisplayed();
+    get pageElement() { return $(this.pageElementLocator)}
+
+    async isPageOpened() {
+        console.log(`Checking if ${this.name} is opened`);
+        let element = await this.pageElement;                
+        await element.waitForDisplayed();
+        return element.isDisplayed();
     }
 
 }
