@@ -22,7 +22,7 @@ class InterestPage extends Page{
         let elements = await this.interestCheckBoxes.getElements;
         const randomArray = CommonUtils.randomArray(testData.number_of_interests,elements.length-1)
         for(let i=0;i<randomArray.length;i++){
-            await elements[i].click();
+            await elements[randomArray[i]].click();
         }
     }
 

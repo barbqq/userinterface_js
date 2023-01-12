@@ -1,3 +1,5 @@
+import allure from 'allure-commandline'
+
 export const config = {
     //
     // ====================
@@ -218,11 +220,7 @@ export const config = {
      */
     // beforeTest: function (test, context) {
     // },
-    before: async () => {
-        const chai = await import('chai');
-        global.expect = chai.expect;
-        global.assert = chai.assert;
-    }
+    
     /**
      * Hook that gets executed _before_ a hook within the suite starts (e.g. runs before calling
      * beforeEach in Mocha)
@@ -288,7 +286,7 @@ export const config = {
      * @param {Object} config wdio configuration object
      * @param {Array.<Object>} capabilities list of capabilities details
      * @param {<Object>} results object containing test results
-     */
+     */    
     // onComplete: function(exitCode, config, capabilities, results) {
     // },
     /**

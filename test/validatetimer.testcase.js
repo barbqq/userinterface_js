@@ -3,7 +3,7 @@ import LoginPage from '../pages/login.page.js';
 import expect from 'chai';
 import testData from '../config/test_data.json' assert { type: "json" };
 
-describe("Hiding help form", async function(){
+describe("Validate timer", async function(){
     it("Navigate to home page", async ()=>{        
         await browser.url("/");
         await browser.maximizeWindow();                                      
