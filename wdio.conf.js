@@ -1,5 +1,4 @@
 import allure from 'allure-commandline'
-
 export const config = {
     //
     // ====================
@@ -137,7 +136,11 @@ export const config = {
     // Test reporter for stdout.
     // The only one supported by default is 'dot'
     // see also: https://webdriver.io/docs/dot-reporter
-    reporters: ['spec'],
+    reporters: [['allure', {
+        outputDir: 'allure-results',
+        disableWebdriverStepsReporting: true,
+        disableWebdriverScreenshotsReporting: true,
+    }]],
 
 
     
@@ -288,7 +291,7 @@ export const config = {
      * @param {<Object>} results object containing test results
      */    
     // onComplete: function(exitCode, config, capabilities, results) {
-    // },
+    // },     
     /**
     * Gets executed when a refresh happens.
     * @param {String} oldSessionId session ID of the old session

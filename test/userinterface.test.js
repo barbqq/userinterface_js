@@ -10,6 +10,9 @@ describe("Testing userinterface site", async function(){
         await browser.url("/");
         await browser.maximizeWindow();
     });
+    afterEach(async ()=>{
+        await browser.reloadSession();
+    });
     it("Register on userinterface site",async function(){   
         await CommonSteps.navigateToHomePage();
         await CommonSteps.clickGameLinkBtn();     

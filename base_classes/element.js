@@ -1,3 +1,5 @@
+import report from '@wdio/allure-reporter';
+
 export default class Element {
     constructor(name,elementLocator){
         this.name = name;
@@ -8,22 +10,22 @@ export default class Element {
 
     get getElements(){ return $$(this.elementLocator)}
 
-    async click(){        
-        console.log(`Clicking ${this.name}`);
+    async click(){   
+        report.addStep(`Clicking ${this.name}`);     
         let element = await this.getElement;
         await element.waitForDisplayed();
         await element.click();        
     }
 
     async getText(){
-        console.log(`Getting text from ${this.name}`);
+        report.addStep(`Getting text from ${this.name}`);        
         let element = await this.getElement;
         await element.waitForDisplayed();
         return element.getText();
     }
 
     async sendText(value){
-        console.log(`Sending text ${value} to ${this.name}`);
+        report.addStep(`Sending text ${value} to ${this.name}`);        
         let element = await this.getElement;
         await element.waitForDisplayed();
         await element.clearValue();
@@ -31,12 +33,13 @@ export default class Element {
     }
 
     async isElementPresent(){
-        console.log(`Checking presens of ${this.name}`);
+        report.addStep(`Checking presens of ${this.name}`);        
         let element = await this.getElement;
         return await element.waitForDisplayed();        
     }
 
     async isExisting(){
+        report.addStep(`Checking ${this.name} existence`);
         let element = await this.getElement;
         return await element.isExisting(); 
     }
