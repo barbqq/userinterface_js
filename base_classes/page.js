@@ -7,13 +7,13 @@ export default class Page {
             this.pageElementLocator = pageElementLocator;
     }
 
-    get pageElement() { return $(this.pageElementLocator)}
+    get pageElement() { return $$(this.pageElementLocator)}
 
     async isPageOpened() {
         report.addStep(`Checking if ${this.name} is opened`);        
-        let element = await this.pageElement;                
-        await element.waitForDisplayed();
-        return element.isDisplayed();
+        let element = await this.pageElement;
+        await element[0].waitForDisplayed();
+        return element[0].isDisplayed();
     }
 
 }

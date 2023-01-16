@@ -1,4 +1,5 @@
 import allure from 'allure-commandline'
+import configData from '../userinterface_js/config/config.json' assert { type: "json" };
 export const config = {
     //
     // ====================
@@ -98,7 +99,7 @@ export const config = {
     // with `/`, the base url gets prepended, not including the path portion of your baseUrl.
     // If your `url` parameter starts without a scheme or `/` (like `some/path`), the base url
     // gets prepended directly.
-    baseUrl: 'https://userinyerface.com/',
+    baseUrl: configData.url,
     //
     // Default timeout for all waitFor* commands.
     waitforTimeout: 10000,

@@ -4,6 +4,7 @@ import TextBox from '../elements/textbox.element.js';
 import CheckBox from '../elements/checkbox.element.js';
 import Label from '../elements/label.element.js';
 import testData from '../config/test_data.json' assert { type: "json" };
+import CommonUtils from '../utils/common.utils.js';
 
 
 
@@ -42,8 +43,8 @@ class LoginPage extends Page{
     }
 
     async inputData(){
-        await this.inputPassword.sendText(testData.password);
-        await this.inputEmail.sendText(testData.email);
+        await this.inputPassword.sendText(CommonUtils.generatePassword());
+        await this.inputEmail.sendText(CommonUtils.generateEmail());
         await this.inputDomain.sendText(testData.domain);
     }
 
