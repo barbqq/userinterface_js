@@ -1,21 +1,15 @@
 import axios from "axios";
 import testData from '../resources/test_data.json' assert { type: "json" };
+import endpoints from '../resources/endpoints.json' assert { type: "json" }; 
 
-axios.defaults.baseURL = testData.main_url
-
-class HttpUtils {
-    static async getEntity(id, path){
-        return await axios.get(testData.post_path + id)
+export default class HttpUtils {
+    static async sendGet(path){
+        return axios.get(path)
     }
 
-    static async getEntities(path){
-        return await axios.get(testData.post_path)
-    }
-
-    static async postEntity(data, path){
-        return await axios.post(path,data)
+    static async sendPost(path){
+        return axios.post(path)
     }
 
 }
 
-export default HttpUtils;
