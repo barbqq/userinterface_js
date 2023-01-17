@@ -1,0 +1,12 @@
+{
+    "number_of_interests" : 3,
+    "password" : "Randommmmmm1",
+    "email" : "randomemail",
+    "domain" : "gmail",
+    "timer_value" : "00:00:00",
+    "accept_all_checkbox_number" : 17,
+    "choose_password_loc" : "Choose Password",
+    "your_email_loc" : "Your email",
+    "domain_loc" : "Domain",
+    "interest_error_message" : "Please upload a picture"  
+}
