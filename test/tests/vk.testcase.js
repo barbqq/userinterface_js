@@ -9,6 +9,9 @@ describe("Tests of VK UI and VK API", function () {
         await browser.reloadSession();
     });
     it("Tests of VK UI and VK API", async function () {
-        await VKSteps.loginToMyPage();
+        await VKSteps.loginToMyPage();        
+        await VKSteps.createPostStep();
+        await VKSteps.addCommentStep();
+        await VKSteps.addLikeStep();                
     })
 })

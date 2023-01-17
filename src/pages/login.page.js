@@ -11,7 +11,7 @@ class LoginPage extends Page{
     }
 
     async clickContinueBtn(){
-        await this.continueBtn.click();
+        await this.continueBtn.click();        
     }    
 
     async inputPassword(password){

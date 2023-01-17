@@ -34,13 +34,21 @@ export default class Element {
 
     async isElementPresent(){
         report.addStep(`Checking presens of ${this.name}`);        
-        let element = await this.getElement;
-        return await element.waitForDisplayed();        
+        let element = await this.getElement;        
+        await element.waitForDisplayed();
+        return element.isDisplayed();
+              
     }
 
     async isExisting(){
         report.addStep(`Checking ${this.name} existence`);
         let element = await this.getElement;
-        return await element.isExisting(); 
+        return element.isExisting(); 
+    }
+
+    async getAttribute(value){
+        report.addStep(`Getting ${this.name} attribute ${value}`);
+        let element = await this.getElement;
+        return element.getAttribute(value);
     }
 }

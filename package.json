@@ -9,8 +9,10 @@
     "@wdio/mocha-framework": "^8.1.2",
     "@wdio/spec-reporter": "^8.1.2",
     "allure-commandline": "^2.20.1",
+    "axios": "^1.2.2",
     "chai": "^4.3.7",
     "chromedriver": "^109.0.0",
+    "http-status-codes": "^2.2.0",
     "wdio-chromedriver-service": "^8.0.1"
   },
   "scripts": {

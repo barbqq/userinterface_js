@@ -1,6 +1,6 @@
 {    
     "login" : "375291660762",
     "password" : "PuV6j_.2&$m9h?UYY",
-    "owner_id" : "627657327",
-    "random_string_len" : 15    
+    "random_string_len" : 15,
+    "post_id_attr" : "id"    
   }
