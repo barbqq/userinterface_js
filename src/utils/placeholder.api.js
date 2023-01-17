@@ -22,7 +22,7 @@ class PlaceholderAPI{
     }
 
     static async getUserById(id){
-        return this.httpUtils.sendGet(endpoints.user_path + id)
+        return HttpUtils.sendGet(endpoints.user_path + id)
     }
 }
 
