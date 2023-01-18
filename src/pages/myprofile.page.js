@@ -1,5 +1,6 @@
 import Page from "../baseClasses/form.js";
 import Button from "../elements/button.element.js";
+import Label from "../elements/label.elements.js";
 import TextBox from "../elements/textbox.element.js";
 import testData from '../resources/test.data.json' assert { type: "json" };
 
@@ -8,6 +9,9 @@ class MyProfilePage extends Page{
         super('My profile page',"//div[contains(@class,'ProfileActions')]")
     }
 
+    openedImage = new Label('Opened image',"//div[@id='pv_photo']//img")
+    closeBtn = new Button("Close button",`//div[@class='pv_close_btn']`)
+
     async checkPostCreated(text){
         let wallPost = new TextBox("Post text",`//div[contains(text(),'${text}')]`)
         return wallPost.isElementPresent();
@@ -15,7 +19,7 @@ class MyProfilePage extends Page{
 
     async checkPostExistence(text){
         let wallPost = new TextBox("Post text",`//div[contains(text(),'${text}')]`)
-        return wallPost.isElementPresent();
+        return wallPost.isElementPresent(true);
     }
 
     async getPostAttribute(text){
@@ -31,6 +35,16 @@ class MyProfilePage extends Page{
     async clickLikeBtn(text){
         let likeBtn = new Button("Like button",`//div[contains(text(),'${text}')]//parent::div//parent::div//parent::div//div[contains(@class,'PostButtonReactions--post')]`);
         await likeBtn.click();
+    }
+
+    async getImageUrl(text){
+        let wallPostImage = new Label("Image",`//div[contains(text(),'${text}')]//parent::div//a`);
+        await wallPostImage.click();
+        return this.openedImage.getAttribute("src")
+    }
+
+    async clickCloseBtn(){
+        await this.closeBtn.click();
     }
 }
 
