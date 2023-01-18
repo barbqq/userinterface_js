@@ -1,0 +1,11 @@
+{
+    "main_url" : "https://jsonplaceholder.typicode.com/",
+    "empty_post" : 150,
+    "post_user_id" : 10,
+    "post_id" : 99,
+    "user_id_to_compare" : 5,
+    "user_path" : "users/",
+    "post_path" : "posts/",
+    "empty_response" : "{}",
+    "content_type" : "application/json; charset=utf-8"
+  }

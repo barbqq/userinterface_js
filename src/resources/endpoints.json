@@ -1,0 +1,5 @@
+{
+    "main_url" : "https://jsonplaceholder.typicode.com/",
+    "user_path" : "users/",
+    "post_path" : "posts/"
+}
