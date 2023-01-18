@@ -36,14 +36,6 @@ export default class Element {
         report.addStep(`Checking presens of ${this.name}`);        
         let element = await this.getElement;        
         return element.waitForDisplayed({reverse : reverse});
-        //return element.isDisplayed();
-              
-    }
-
-    async isExisting(reverse){
-        report.addStep(`Checking ${this.name} existence`);
-        let element = await this.getElement;        
-        return element.waitForDisplayed({ reverse: reverse });
     }
 
     async getAttribute(value){

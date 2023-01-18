@@ -75,7 +75,7 @@ class VKApiUtils{
         let params = VKApiUtils.commonParams();
         params.post_id = postId;
         params.message = text;
-        params.attachments = "photo" + apiData.owner_id + "_" + photoId
+        params.attachments = apiData.type_of_upload_file + apiData.owner_id + "_" + photoId
         const resp = await HttpUtils.sendPost(apiData.edit_wall_post_path,null,params)
         console.log(resp.data)
         const a = 4;

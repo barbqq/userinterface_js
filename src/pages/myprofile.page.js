@@ -40,7 +40,7 @@ class MyProfilePage extends Page{
     async getImageUrl(text){
         let wallPostImage = new Label("Image",`//div[contains(text(),'${text}')]//parent::div//a`);
         await wallPostImage.click();
-        return this.openedImage.getAttribute("src")
+        return this.openedImage.getAttribute(testData.image_attr)
     }
 
     async clickCloseBtn(){

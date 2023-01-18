@@ -56,8 +56,7 @@ class VKSteps{
         await VKApiUtils.checkLikes(apiData.owner_id,'post',VKSteps.post.post_id)
         .then( response => {            
             Assertions.toEqual(StatusCodes.OK,response.status,"Status code should be OK");
-            Assertions.toEqual(testData.number_of_likes,response.data.response.liked,"Post should be liked");
-            console.log(response.data)            
+            Assertions.toEqual(testData.number_of_likes,response.data.response.liked,"Post should be liked");                      
         });
     }
 
@@ -65,8 +64,7 @@ class VKSteps{
         CommonUtils.addLog("--Deleting post--")
         await VKApiUtils.deletePost(VKSteps.post.post_id)
         .then( response => {            
-            Assertions.toEqual(StatusCodes.OK,response.status,"Status code should be OK");
-            console.log(response.data)            
+            Assertions.toEqual(StatusCodes.OK,response.status,"Status code should be OK");                        
         });
         Assertions.toEqual(true,await MyProfilePage.checkPostExistence(VKSteps.post.message),"Post should not be displayed");
     }
