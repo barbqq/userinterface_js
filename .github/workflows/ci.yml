@@ -1,26 +1,3 @@
 name: Run VK API tests
 on:
-  workflow_dispatch     
-jobs:
-  build-and-test:
-    env:
-      SUITES: ${{ github.event.inputs.suite == '' && 'all' ||  github.event.inputs.suite }}
-    runs-on: ubuntu-latest
-    steps:
-        - name: Checkout
-          uses: actions/checkout@v3
-        - uses: actions/setup-node@v2
-          with:
-            node-version: 18
-        - name: Install
-          run: npm install
-        - name: Test
-          run: npm run test
-        - name: Generate report
-          if: always()
-          run: npm run generate_report  
-        - uses: actions/upload-artifact@v1
-          if: always()          
-          with:
-            name: allureReport
-            path: ./allure-report
+  workflow_dispatch
