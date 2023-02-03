@@ -6,7 +6,7 @@ import testData from '../resources/test.data.json' assert { type: "json" };
 
 class MyProfilePage extends Page{
     constructor(){
-        super('My profile page',"//div[contains(@class,'ProfileActions')]")
+        super('My profile page',"//div[@class='ProfileHeader']")
     }
 
     openedImage = new Label('Opened image',"//div[@id='pv_photo']//img")

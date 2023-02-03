@@ -14,10 +14,12 @@ jobs:
         - name: Install
           run: npm install
         - name: Test
-          run: npx wdio ./wdio.conf.js --suite ${{ env.SUITES }}
+          run: npm run test
         - name: Generate report
+          if: always()
           run: npm run generate_report  
-        - uses: actions/upload-artifact@v1          
+        - uses: actions/upload-artifact@v1
+          if: always()          
           with:
             name: allureReport
             path: ./allure-report
