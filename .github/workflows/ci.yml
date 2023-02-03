@@ -1,0 +1,33 @@
+name: Run VK API tests
+on:
+  pull_requst:
+    branches:
+      -main
+
+workflow_dispatch:
+  inputs:
+    suite:
+      description: "Suite name to test (will run all test if empty)"
+      required: false
+      type: string            
+jobs:
+  build-and-test:
+    end:
+      SUITES: ${{ github.event.inputs.suite == '' && 'all' ||  github.event.inputs.suite }}
+    runs-on: ubuntu-latest
+    steps:
+        - name: Checkout
+          uses: actions/checkout@v3
+        - uses: actions/setup-node@v2
+          with:
+            node-version: 18
+        - name: Install
+          run: npm install
+        - name: Test
+          run: npx wdio ./wdio.conf.js --suite ${{ env.SUITES }}
+        - name: Generate report
+          run: npm run generate_report  
+        - uses: actions/upload-artifact@v1          
+          with:
+            name: allureReport
+            path: ./allure-report

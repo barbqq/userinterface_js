@@ -15,7 +15,7 @@ export default class HttpUtils {
 
     static async uploadNodeFetch(url,formData){
         console.log(url)
-        console.log(formData)
+        console.log(formData.get('photo'))
         const uploadResponse = await fetch(url, {
             method: 'POST',
             headers: formData.getHeaders(),                        

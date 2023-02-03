@@ -26,6 +26,14 @@ export const config = {
         // ToDo: define location for spec files here
         './test/tests/**/*.js'
     ],
+    suites: {
+        vk_api: [
+            './test/tests/vk.testcase.js'
+        ],
+        all: [
+            './test/tests/**/*.js'
+        ]
+    },
     // Patterns to exclude.
     exclude: [
         // 'path/to/excluded/files'
