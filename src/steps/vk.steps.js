@@ -20,7 +20,7 @@ class VKSteps{
         Assertions.toEqual(true,await LoginPage.isPageOpened(),"Login page should be opened");                
         await LoginPage.inputPassword(testData.password)
         await LoginPage.clickContinueBtn();
-        //Assertions.toEqual(true,await NewsPage.isPageOpened(),"News page should be opened");
+        Assertions.toEqual(true,await NewsPage.isPageOpened(),"News page should be opened");
         await SideBarForm.clickMyProfileBtn();
         Assertions.toEqual(true,await MyProfilePage.isPageOpened(),"My profile page should be opened");        
     }

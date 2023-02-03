@@ -1,5 +1,14 @@
 name: Run VK API tests
-on: push          
+on: 
+  push:
+    branches:
+      - vk_api
+  workflow_dispatch:
+      inputs:
+        suite:
+          description: "Suite name to test (will run all test if empty)"
+          required: false
+          type: string          
 jobs:
   build-and-test:
     env:
