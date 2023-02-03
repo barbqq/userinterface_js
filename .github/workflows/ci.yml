@@ -1,3 +1,0 @@
-name: Run VK API tests
-on:
-  workflow_dispatch
