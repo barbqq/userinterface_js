@@ -1,7 +1,7 @@
 name: Run VK API tests
 on:
   workflow_dispatch:
-  inputs:
+    inputs:
       suite:
         description: "Suite name to test (will run all test if empty)"
         required: false
