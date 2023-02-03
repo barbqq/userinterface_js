@@ -12,7 +12,7 @@ on:
         type: string            
 jobs:
   build-and-test:
-    end:
+    env:
       SUITES: ${{ github.event.inputs.suite == '' && 'all' ||  github.event.inputs.suite }}
     runs-on: ubuntu-latest
     steps:
