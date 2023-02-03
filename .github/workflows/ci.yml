@@ -1,6 +1,6 @@
 name: Run VK API tests
 on:
-  pull_requst:
+  pull_request:
     branches:
       -main
 
