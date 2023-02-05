@@ -24,7 +24,7 @@ jobs:
           run: npm install
 
         - name: Test
-          run: npm run test
+          run: npx wdio ./wdio.conf.js --suite ${{ env.SUITES }}
 
         - name: Get Allure history
           uses: actions/checkout@v2
