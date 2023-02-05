@@ -26,10 +26,6 @@ jobs:
         - name: Test
           run: npm run test
 
-        - name: Generate report
-          if: always()
-          run: npm run generate_report
-
         - name: Get Allure history
           uses: actions/checkout@v2
           if: always()
@@ -43,7 +39,7 @@ jobs:
           if: always()
           id: allure-report
           with:
-            allure_results: ./allure-report
+            allure_results: ./allure-results
             gh_pages: gh-pages
             allure_report: allure-report
             allure_history: allure-history
