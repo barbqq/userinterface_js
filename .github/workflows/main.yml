@@ -10,22 +10,59 @@ jobs:
   build-and-test:
     env:
       SUITES: ${{ github.event.inputs.suite == '' && 'all' ||  github.event.inputs.suite }}
+      GH_PAGES_URL: https://barbqq.github.io/userinterface_js/
     runs-on: ubuntu-latest
     steps:
         - name: Checkout
           uses: actions/checkout@v3
+
         - uses: actions/setup-node@v2
           with:
             node-version: 18
+
         - name: Install
           run: npm install
+
         - name: Test
           run: npm run test
+
         - name: Generate report
           if: always()
-          run: npm run generate_report  
-        - uses: actions/upload-artifact@v1
-          if: always()          
+          run: npm run generate_report
+
+        - name: Get Allure history
+          uses: actions/checkout@v2
+          if: always()
+          continue-on-error: true
           with:
-            name: allureReport
-            path: ./allure-report         
+            ref: gh-pages
+            path: gh-pages
+
+        - name: Generate Allure Report
+          uses: simple-elf/allure-report-action@master
+          if: always()
+          id: allure-report
+          with:
+            allure_results: ./allure-report
+            gh_pages: gh-pages
+            allure_report: allure-report
+            allure_history: allure-history
+            keep_reports: 50
+
+        - name: Deploy report to Github Pages
+          if: always()
+          uses: peaceiris/actions-gh-pages@v2
+          env:
+            PERSONAL_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+            PUBLISH_BRANCH: gh-pages
+            PUBLISH_DIR: allure-history
+
+        - name: Post the link to the report
+          if: always()
+          uses: Sibz/github-status-action@v1
+          with:
+            authToken: ${{secrets.GITHUB_TOKEN}}
+            context: 'VK API tests report'
+            state: ${{ steps.maven_tests.outcome == 'success' && 'success' || 'failure' }}
+            sha: ${{github.event.pull_request.head.sha || github.sha}}
+            target_url: ${{ env.GH_PAGES_URL }}/${{github.run_number}}/                     
